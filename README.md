@@ -1,5 +1,8 @@
 # DeepSpeech websocket server
 
+[![pipeline status](https://gitlab.com/opensorceror/deepspeech-websocker-server/badges/main/pipeline.svg)](https://gitlab.com/opensorceror/deepspeech-websocker-server/-/commits/main)
+[![coverage report](https://gitlab.com/opensorceror/deepspeech-websocker-server/badges/main/coverage.svg)](https://gitlab.com/opensorceror/deepspeech-websocker-server/-/commits/main)
+
 This repository contains a simple service that receives audio data from clients, and serves the results
 of [Mozilla DeepSpeech](https://github.com/mozilla/DeepSpeech) inference over a websocket.
 The server code in this project is a modified version of [this GitHub project](https://github.com/zelo/deepspeech-rest-api).

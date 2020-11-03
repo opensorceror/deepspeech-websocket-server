@@ -1,0 +1,30 @@
+stages:
+  - verify
+
+# Declare global variables (for all jobs in the pipeline)
+variables:
+  DEEPSPEECH_IMAGE: "opensorceror/deepspeech:0.8.2"
+  SRC_DIR: "deepspeech_server"
+
+####################################################################################
+#
+# Test
+#
+####################################################################################
+test:
+  image: ${DEEPSPEECH_IMAGE}
+  stage: verify
+  tags:
+    - gitlab-org-docker
+  before_script:
+    - mv ${DEEPSPEECH_HOME}/model.pbmm .
+    - mv ${DEEPSPEECH_HOME}/scorer.scorer .
+  script:
+    - pip install -q -r requirements.txt
+    - make pytest
+  needs: []
+  artifacts:
+    paths:
+      - pytest-report.xml
+      - coverage.xml
+
