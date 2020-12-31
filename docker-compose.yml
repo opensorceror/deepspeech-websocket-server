@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  stts:
+    build: .
+    command: python -m deepspeech_server.app
+    volumes:
+      - ./deepspeech_server:/opt/deepspeech/deepspeech_server
+      - ./application.conf:/opt/deepspeech/application.conf
+    ports:
+      - "8090:8080"
